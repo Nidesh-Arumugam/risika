@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Spectrum - The No Hassle jQuery Colorpicker</title>
+    <link rel="stylesheet" type="text/css" href="spectrum.css">
+    <link rel="stylesheet" type="text/css" href="docs/bootstrap.css">
+    <!-- <link rel="stylesheet" type="text/css" href="docs/docs.css"> -->
+    <script type="text/javascript" src="docs/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="spectrum.js"></script>
+    <script type='text/javascript' src='docs/toc.js'></script>
+    <script type='text/javascript' src='docs/docs.js'></script>
+	<style type="text/css">
+		*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, Geometria, sans-serif;
+    /*background-color: #2c7580;*/
+}
+
+body {
+    padding: 10px 30px;
+    font-size: 30px;
+    user-select: none;
+}
+
+h1 {
+    font-size: 25px;
+    padding: 20px 0;
+    text-shadow: 0 0 4px silver;
+}
+
+li {
+    list-style-type: none;
+}
+
+.wrapper {
+    /*width: 400px;*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    padding: 5px 59px;
+    /*border: 5px groove gray;*/
+    border: 1px solid gray;
+    text-align: center;
+}
+
+/* tabs */
+.tab-list {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.tab-item {
+    flex-grow: 1;
+    width: 50px;
+    padding: 13px;
+    background: #ececec;
+    transition: width 0.5s;
+    font-size: 21px;
+    color: #000;
+}
+
+/* content */
+.content-list {
+    width: 100%;
+    /*border: 2px solid black;*/
+}
+
+.content-item {
+    display: none;
+    height: 200px;
+    /*line-height: 200px;*/
+    background: #ffffff;
+}
+
+.tab-item.is-active {
+    width: 80px;
+    height: 49px;
+    background: #3da4fd;
+    font-size: 21px;
+    color: #fff;
+}
+
+.content-item.is-active {
+    display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 25px;
+  height: 69px;
+  text-align: left; 
+  font-size: 19px;/* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.button {
+  background-color: #fff;
+  border: none;
+  color: #fc0a0b;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<ul class="tab-list">
+		<li class="tab-item is-active">Heading</li>
+		<li class="tab-item">Sidebar</li>
+		<li class="tab-item">Main Boby</li>
+	</ul>
+
+	<ul class="content-list">
+		<li class="content-item is-active">
+			<div class="row">
+  <div class="column">
+  <input type='text' id="colorPicker"/>
+       Background color
+  </div>
+  <div class="column">
+    <input type='text' id="customtwo"/>
+       Your name
+  </div>
+  <div class="column">
+    <input type='text' id="customthree"/>
+       Contact buttom color
+  </div>
+
+  <div class="column">
+  <input type='text' id="customfour"/>
+       Menu text color
+  </div>
+  <div class="column">
+    <input type='text' id="customfive"/>
+       Designation
+  </div>
+  <div class="column">
+    <input type='text' id="customsix"/>
+       Contact button text color
+  </div>
+</div>
+		</li>
+
+		<li class="content-item">
+      <div class="row">
+  <div class="column">
+  <input type='text' id="customsidebarone"/>
+       Get in Touch button color
+  </div>
+  <div class="column">
+    <input type='text' id="customsidebartwo"/>
+       Website button color
+  </div>
+  <div class="column">
+    <input type='text' id="customsidebarthree"/>
+       Phone # color
+  </div>
+
+  <div class="column">
+  <input type='text' id="customsidebarfour"/>
+       Get in Touch text color
+  </div>
+  <div class="column">
+    <input type='text' id="customsidebarfive"/>
+       Website button text color
+  </div>
+  <div class="column">
+    <input type='text' id="customsidebarsix"/>
+       Sidebar color
+  </div>
+</div></li>
+		<li class="content-item">
+    <div class="row">
+  <div class="column">
+  <input type='text' id="customcontentone"/>
+       Profile Background color
+  </div>
+  <div class="column">
+    <input type='text' id="customcontenttwo"/>
+       Profile button color
+  </div>
+  <div class="column">
+    <input type='text' id="customcontentthree"/>
+       Hyperlink color
+  </div>
+
+  <div class="column">
+  <input type='text' id="customcontentfour"/>
+      Profile text color
+  </div>
+  <div class="column">
+    <input type='text' id="customcontentfive"/>
+       Profile button color
+  </div>
+  
+</div>  
+    </li>
+	</ul>
+
+<ul class="tab-list">
+    <li class="tab-item" id="output" style="text-align: left; height: 115px; background-color: #fc0a0b;">
+      <div class="row">
+          <div class="column"  style="display: flex;">
+            <img src="images/avatarsnapone.png" alt="Avatar" class="avatar"> 
+              <div  style="margin-top: -43px; margin-left: 15px;">&nbsp;&nbsp;&nbsp; <h3 style="color: #fff;" id="outputtwo">Your Name</h3><p style="color: #fff;" id="outputthree">UI Developer</p>
+              </div>
+          </div>
+          <div class="column">
+          <!-- <img src="images/avatarsnapone.png" alt="Avatar" class="avatar"> -->
+          </div>
+          <div class="column">
+           <div  style="display: flex;">&nbsp;&nbsp;&nbsp;
+              <button class="button" id="outputfour"><a href="#" style="text-decoration: none; color: #fc0a0b;" id="outputsix">Contact me</a></button>&nbsp;&nbsp;&nbsp;
+              <p style="margin-top: 19px; color: #fff; font-size: 15px;" id="outputfive">
+                Home &nbsp;&nbsp;&nbsp; Get in Touch</p>
+            </div>
+          </div>
+      </div>
+</li>
+  </ul>
+
+
+
+</div>
+</body>
+<script type="text/javascript">
+	/*
+
+1 способ
+Алгоритм:
+    1 Устанавливаем active классы вручную на кнопку и на блок-контента
+    2 Скрываем в CSS все блоки контента, кроме активного
+    3 в JS обрабатываем клик по кнопкам
+    4 При клике:
+        - проверяем содержание active класса, что бы избежать лишних вызовов ф-ций
+        - очищаем циклом все active - классы у кнопок и у блок-контента
+            для этого напишем функцию очистки классов
+        - устанавливаем новый активный класс
+            для этого напишем функцию установки активного класса
+*/
+
+const tabItems = document.querySelectorAll('.tab-item')
+const contentItems = document.querySelectorAll('.content-item')
+
+const findClearActiveClass = (elements, className = 'is-active') => {
+    Array.from(elements).find(item => item.classList.remove(`${ className }`))
+}
+
+const setActiveClass = (element, index, className = 'is-active') => {
+    element[index].classList.add(`${ className }`)
+}
+
+const checkoutTabs = (item, index) => {
+    item.addEventListener('click', () => {
+        if (item.classList.contains('is-active')) return
+        
+        const currentItem = index
+    
+        findClearActiveClass(tabItems)
+        findClearActiveClass(contentItems)
+        
+        setActiveClass(tabItems, currentItem)
+        setActiveClass(contentItems, currentItem)
+    })
+}
+
+tabItems.forEach(checkoutTabs)
+
+// jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#colorPicker").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#output").css(
+                        "background-color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+        // jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#customtwo").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#outputtwo").css(
+                        "color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+
+// jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#customfive").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#outputthree").css(
+                        "color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+
+// jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#customthree").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#outputfour").css(
+                        "background-color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+
+// jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#customfour").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#outputfive").css(
+                        "color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+        // jQuery to show selected color in 
+        // the ouput of body tag.
+        $(document).ready(function () {
+            $("#customsix").spectrum({
+                color: "#fff",
+  
+                // showApla set true to get 
+                // transparency slider in 
+                // the spectrum.
+                showAlpha: true,
+                preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+                palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]],
+                move: function (color) {
+                    $("#outputsix").css(
+                        "color", 
+                        color.toRgbString());
+                },
+            });
+        });
+
+
+$("#customsidebarone").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customsidebartwo").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customsidebarthree").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#202020",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customsidebarfour").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customsidebarfive").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customsidebarsix").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#FFB4B5",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+
+
+$("#customcontentone").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#FFB4B5",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customcontenttwo").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customcontentthree").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#E4E05A",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customcontentfour").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#ea1200",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+$("#customcontentfive").spectrum({
+    preferredFormat: "hex",
+    showInput: true,
+    showPalette: true,
+    color: "#fff",
+    palette: [["red", "rgba(0, 255, 0, .5)", "rgb(0, 0, 255)"]]
+});
+
+</script>
+</html>
